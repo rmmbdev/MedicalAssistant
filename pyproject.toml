@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "medical-assistant-telegram-bot"
+version = "0.1.0"
+description = ""
+authors = ["Reza <rmm.dev.backend@gmail.com>"]
+readme = "README.md"
+packages = [{include = "medical_assistant_telegram_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-telegram-bot = "^20.3"
+emoji = "^2.4.0"
+environs = "^9.5.0"
+yachalk = "^0.1.5"
+celery = "^5.2.7"
+redis = "^4.5.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

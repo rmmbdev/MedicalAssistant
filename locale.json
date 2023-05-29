@@ -1,0 +1,16 @@
+{
+  "start_label": "Start",
+  "greeting": "{} Welcome to Medical Assistant Bot.\n{} How can I help you?",
+  "help_label": "Help",
+  "help_text": "You can send your medical image and we will process them for you",
+  "breast_cancer_label": "Breast Cancer",
+  "breast_cancer_send_file_text": "Please send your mri of your breast",
+  "process_image_intro": "We are currently processing your input, please wait.",
+  "process_image_attention": "We will send you the results as soon as your input got processed",
+  "save": "Save",
+  "stop_title": "Good Bye. I hope, I was useful.",
+  "return_label": "Return",
+  "return_text": "Please choose an option",
+  "cancel_label": "Cancel",
+  "stop": "Stop"
+}
