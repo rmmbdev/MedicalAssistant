@@ -1,29 +1,26 @@
 #!/usr/bin/env python
 
-import datetime
 import json
-import os
 import sys
-from datetime import datetime
-from time import sleep
-
-from tasks import app
 
 import telegram
 from emoji import emojize
-from telegram import ReplyKeyboardMarkup, Update, InlineKeyboardButton, InlineKeyboardMarkup
+from environs import Env
+from telegram import (
+    ReplyKeyboardMarkup,
+    Update,
+)
 from telegram.ext import (
     Application,
     filters,
     CommandHandler,
     MessageHandler,
     ConversationHandler,
-    CallbackContext,
-    CallbackQueryHandler
+    CallbackContext
 )
 from yachalk import chalk
+
 from tasks import breast_cancer_detection
-from environs import Env
 
 # region const definitions
 
@@ -37,7 +34,6 @@ START, CHOOSING, HELP, PHOTO, WAIT_RESULT = range(5)
 with open("locale.json", encoding='utf-8', mode='r') as f:
     locale = json.load(f)
 
-bot_language = "fa"
 date_format = '%Y-%m-%d %H:%M:%S'
 date_format_for_time_stamp = '%Y-%m-%d %H-%M'
 

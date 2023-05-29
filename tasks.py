@@ -1,10 +1,8 @@
-from time import sleep
-
 from celery import Celery
 from celery.contrib.abortable import AbortableTask
-from client_manipulator import BotHandler
-import json
 from environs import Env
+
+from client_manipulator import BotHandler
 
 env = Env()
 env.read_env()
