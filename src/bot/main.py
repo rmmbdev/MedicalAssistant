@@ -20,7 +20,7 @@ from telegram.ext import (
 )
 from yachalk import chalk
 
-from tasks import breast_cancer_detection
+from src.celery.tasks import breast_cancer_detection
 
 # region const definitions
 
