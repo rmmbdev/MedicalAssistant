@@ -20,6 +20,20 @@ services:
       - "127.0.0.1:15672:15672"
     volumes:
       - /data/rabbitmq:/var/lib/rabbitmq/
+  celery-worker:
+    container_name: ma-celery
+    build:
+      context: .
+      dockerfile: Dockerfile.celery
+    restart: always
+    environment:
+      - "TEL_CLIENT_BOT_TOKEN=5940169095:AAHSggGUgo1K_RKGU2kScpbRIerlW8z9_gE"
+      - "REDIS_HOST=redis"
+      - "RABBITMQ_HOST=rabbit"
+    command: [ "python", "-m", "celery", "-A", "src/celery/tasks", "worker", "-l", "info" ]
+    depends_on:
+      - redis
+      - rabbit
   telegram-bot:
     container_name: ma-telegram-bot
     build:
@@ -34,3 +48,4 @@ services:
     depends_on:
       - redis
       - rabbit
+      - celery-worker
