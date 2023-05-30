@@ -1,19 +1,15 @@
 FROM python:3.10-slim-buster
 
-WORKDIR /src
+WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1
-ENV PYTHONPATH=~/src
+ENV PYTHONPATH=~/app
 
 COPY /src /src
 COPY pyproject.toml /src
-
-RUN ls -la /src
 
 RUN pip install poetry
 RUN python -m poetry config virtualenvs.create false
 RUN python -m poetry install --no-interaction --no-ansi --no-root
 
-RUN ls -la /src
-
-CMD ["python", "/bot/main.py"]
+CMD ["python", "/src/bot/main.py"]
