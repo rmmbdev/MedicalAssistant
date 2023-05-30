@@ -8,6 +8,7 @@ ENV PYTHONPATH=/app
 COPY src/bot /app
 COPY src/celery /app
 COPY src/utils /app
+COPY pyproject.toml /app
 
 RUN ls -la /app
 
