@@ -14,7 +14,7 @@ RUN ls -la /app
 
 RUN pip install poetry
 RUN python -m poetry config virtualenvs.create false
-RUN python -m poetry install --no-interaction --no-ansi
+RUN python -m poetry install --no-interaction --no-ansi --no-root
 
 RUN ls -la /app
 
