@@ -30,7 +30,7 @@ services:
       - "TEL_CLIENT_BOT_TOKEN=5940169095:AAHSggGUgo1K_RKGU2kScpbRIerlW8z9_gE"
       - "REDIS_HOST=redis"
       - "RABBITMQ_HOST=rabbit"
-    command: [ "python", "-m", "celery", "-A", "src/celery/tasks", "worker", "-l", "info" ]
+    command: [ "python", "-m", "celery", "-A", "src.celery.tasks", "worker", "-l", "info" ]
     depends_on:
       - redis
       - rabbit
