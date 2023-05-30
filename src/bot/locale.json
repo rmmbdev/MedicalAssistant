@@ -12,5 +12,6 @@
   "return_label": "Return",
   "return_text": "Please choose an option",
   "cancel_label": "Cancel",
-  "stop": "Stop"
+  "stop": "Stop",
+  "invalid_choice_text": "Invalid choice, please pick another"
 }

@@ -105,8 +105,16 @@ async def bot_help(update: Update, context: CallbackContext) -> int:
 
 
 async def photo(update: Update, context: CallbackContext) -> int:
-    text = actions[context.match.string][1]
+    if context.match.string not in actions:
+        await update.message.reply_text(
+            locale["invalid_choice_text"],
+            reply_markup=main_markup
+        )
+        return CHOOSING
 
+    context.user_data["latest_selected_action"] = context.match.string
+
+    text = actions[context.match.string][1]
     await update.message.reply_text(
         text,
         reply_markup=return_markup
@@ -135,7 +143,7 @@ async def process_image(update: Update, context: CallbackContext) -> int:
         reply_markup=cancel_markup
     )
 
-    task = actions[context.match.string][0].delay(update.message.chat_id)
+    task = actions[context.user_data["latest_selected_action"]][0].delay(update.message.chat_id)
     context.user_data["task_id"] = task.task_id
 
     return WAIT_RESULT
