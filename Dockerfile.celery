@@ -4,6 +4,7 @@ WORKDIR /usr/app
 
 ENV PYTHONUNBUFFERED=1
 
+COPY src/bot /usr/app/src/bot
 COPY src/celery /usr/app/src/celery
 COPY src/utils /usr/app/src/utils
 COPY pyproject.toml /usr/app
