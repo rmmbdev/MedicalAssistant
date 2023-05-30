@@ -9,10 +9,10 @@ COPY src/bot /app
 COPY src/celery /app
 COPY src/utils /app
 
-RUN pip install poetry && \
-    poetry config virtualenvs.create false && \
-    poetry install --no-interaction --no-ansi
-
 RUN ls -la /app
+
+RUN pip install poetry
+RUN poetry config virtualenvs.create false
+RUN poetry install --no-interaction --no-ansi
 
 CMD ["python", "/bot/main.py"]
