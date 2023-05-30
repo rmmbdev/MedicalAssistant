@@ -62,7 +62,7 @@ start_keyboard = [['{} {}'.format(locale["start_label"], emojize(':check_mark:')
 start_markup = ReplyKeyboardMarkup(start_keyboard, one_time_keyboard=True, resize_keyboard=True)
 
 actions = {
-    # "Breast Cancer 🩺": (breast_cancer_detection, locale["breast_cancer_send_file_text"]),
+    "Breast Cancer 🩺": (breast_cancer_detection, locale["breast_cancer_send_file_text"]),
 }
 
 bot = telegram.Bot(token=TEL_CLIENT_BOT_TOKEN)
