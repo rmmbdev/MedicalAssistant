@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 from pathlib import Path
 import json
 import sys
@@ -35,7 +36,7 @@ TEL_CLIENT_BOT_TOKEN = env.str("TEL_CLIENT_BOT_TOKEN")
 
 START, CHOOSING, HELP, PHOTO, WAIT_RESULT = range(5)
 
-with open("locale.json", encoding='utf-8', mode='r') as f:
+with open(os.path.join(BASE_DIR, "locale.json"), encoding='utf-8', mode='r') as f:
     locale = json.load(f)
 
 date_format = '%Y-%m-%d %H:%M:%S'
