@@ -18,10 +18,10 @@ def save_image():
 
 
 @app.task(bind=True, base=AbortableTask)
-def breast_cancer_detection(self, chat_id, message):
+def breast_cancer_detection(self, chat_id):
     save_image()
 
-    message - "Process finished!"
+    message = "Process finished!"
     if not self.is_aborted():
         resp = bot_handler.send_message(chat_id, message)
         print(resp.text)
