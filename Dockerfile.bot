@@ -16,4 +16,6 @@ RUN pip install poetry
 RUN python -m poetry config virtualenvs.create false
 RUN python -m poetry install --no-interaction --no-ansi
 
+RUN ls -la /app
+
 CMD ["python", "/bot/main.py"]
