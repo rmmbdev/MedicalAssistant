@@ -8,9 +8,12 @@ env = Env()
 env.read_env()
 
 TEL_CLIENT_BOT_TOKEN = env.str("TEL_CLIENT_BOT_TOKEN")
+REDIS_HOST = env.str("REDIS_HOST")
+RABBITMQ_HOST = env.str("RABBITMQ_HOST")
+
 bot_handler = BotHandler(TEL_CLIENT_BOT_TOKEN)
 
-app = Celery('tasks', broker='amqp://localhost', backend="redis://localhost")
+app = Celery("tasks", broker=f"amqp://{RABBITMQ_HOST}", backend=f"redis://{REDIS_HOST}")
 
 
 def save_image():

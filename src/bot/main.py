@@ -23,12 +23,12 @@ from yachalk import chalk
 
 from src.celery.tasks import breast_cancer_detection
 
-# region const definitions
 BASE_DIR = Path(__file__).resolve().parent
 
 env = Env()
 env.read_env()
 
+# region const definitions
 TEL_CLIENT_BOT_TOKEN = env.str("TEL_CLIENT_BOT_TOKEN")
 
 START, CHOOSING, HELP, PHOTO, WAIT_RESULT = range(5)
@@ -70,11 +70,6 @@ bot = telegram.Bot(token=TEL_CLIENT_BOT_TOKEN)
 
 # endregion
 
-
-# region utils
-
-
-# endregion
 
 # region state definitions
 async def start(update: Update, context: CallbackContext) -> int:
