@@ -4,6 +4,7 @@ version: "3.9"
 services:
   redis:
     image: redis:7.0-alpine3.16
+    container_name: ma-redis
     restart: always
     ports:
       - "127.0.0.1:6379:6379"
@@ -11,6 +12,7 @@ services:
       - /data/redis:/data
   rabbit:
     image: rabbitmq:3.10-management-alpine
+    container_name: ma-rabbitmq
     restart: always
     hostname: alpha
     ports:
@@ -18,3 +20,12 @@ services:
       - "127.0.0.1:15672:15672"
     volumes:
       - /data/rabbitmq:/var/lib/rabbitmq/
+  telegram-bot:
+    container_name: ma-telegram-bot
+    build:
+      context: .
+      dockerfile: Dockerfile.bot
+    restart: always
+    environment:
+      - "TEL_CLIENT_BOT_TOKEN=5940169095:AAHSggGUgo1K_RKGU2kScpbRIerlW8z9_gE"
+    command: [ "python", "main.py" ]
