@@ -23,7 +23,7 @@ from yachalk import chalk
 BASE_DIR = Path(__file__).resolve().parent
 print(BASE_DIR)
 
-from src.celery.tasks import breast_cancer_detection
+# from src.celery.tasks import breast_cancer_detection
 
 # region const definitions
 
