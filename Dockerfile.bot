@@ -5,9 +5,7 @@ WORKDIR /src
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-COPY src/bot /src
-COPY src/celery /src
-COPY src/utils /src
+COPY /src /src
 COPY pyproject.toml /src
 
 RUN ls -la /src
