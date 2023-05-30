@@ -65,7 +65,7 @@ start_keyboard = [['{} {}'.format(locale["start_label"], emojize(':check_mark:')
 start_markup = ReplyKeyboardMarkup(start_keyboard, one_time_keyboard=True, resize_keyboard=True)
 
 actions = {
-    "Breast Cancer 🩺": (breast_cancer_detection, locale["breast_cancer_send_file_text"]),
+    # "Breast Cancer 🩺": (breast_cancer_detection, locale["breast_cancer_send_file_text"]),
 }
 
 bot = telegram.Bot(token=TEL_CLIENT_BOT_TOKEN)
@@ -138,7 +138,7 @@ async def process_image(update: Update, context: CallbackContext) -> int:
         reply_markup=cancel_markup
     )
 
-    task = breast_cancer_detection.delay(update.message.chat_id)
+    task = actions[context.match.string][0].delay(update.message.chat_id)
     context.user_data["task_id"] = task.task_id
 
     return WAIT_RESULT
