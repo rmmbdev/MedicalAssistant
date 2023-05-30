@@ -14,4 +14,4 @@ RUN pip install poetry
 RUN python -m poetry config virtualenvs.create false
 RUN python -m poetry install --no-interaction --no-ansi --no-root
 
-CMD ["python", "-m", "celery", "-A", "celery/tasks", "worker", "-l", "info"]
+CMD ["python", "-m", "celery", "-A", "src/celery/tasks", "worker", "-l", "info"]
