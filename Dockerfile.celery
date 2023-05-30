@@ -5,9 +5,9 @@ WORKDIR /app
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-COPY src/bot /app
-COPY src/celery /app
-COPY src/utils /app
+COPY src/bot /src
+COPY src/celery /src
+COPY src/utils /src
 
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
