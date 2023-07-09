@@ -27,9 +27,9 @@ services:
       dockerfile: Dockerfile.celery
     restart: always
     environment:
-      - "TEL_CLIENT_BOT_TOKEN=5940169095:AAHSggGUgo1K_RKGU2kScpbRIerlW8z9_gE"
-      - "REDIS_HOST=redis"
-      - "RABBITMQ_HOST=rabbit"
+      - TEL_CLIENT_BOT_TOKEN=${TEL_CLIENT_BOT_TOKEN?}
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbit
     command: [ "python", "-m", "celery", "-A", "src.celery.tasks", "worker", "-l", "info" ]
     depends_on:
       - redis
@@ -41,9 +41,9 @@ services:
       dockerfile: Dockerfile.bot
     restart: always
     environment:
-      - "TEL_CLIENT_BOT_TOKEN=5940169095:AAHSggGUgo1K_RKGU2kScpbRIerlW8z9_gE"
-      - "REDIS_HOST=redis"
-      - "RABBITMQ_HOST=rabbit"
+      - TEL_CLIENT_BOT_TOKEN=${TEL_CLIENT_BOT_TOKEN?}
+      - REDIS_HOST=redis
+      - RABBITMQ_HOST=rabbit
     command: [ "python", "src/bot/main.py" ]
     depends_on:
       - redis
